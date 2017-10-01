@@ -5,7 +5,7 @@ class TodosController < ApplicationController
   end
   
   def create
-    @todo=  Todo.new(todo_params)
+    @todo =  Todo.new(todo_params)
     if @todo.save
       flash[:notice] = "Todo was created succesfully!"
       redirect_to todo_path(@todo)
@@ -30,6 +30,10 @@ class TodosController < ApplicationController
     else
       render  'edit'
     end
+  end
+  
+  def index
+    @todos = Todo.all
   end
   
   private
